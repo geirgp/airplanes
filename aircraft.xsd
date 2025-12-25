@@ -1,0 +1,355 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+
+  <!-- ==================== Root Element ==================== -->
+  <xs:element name="Aircraft" type="AircraftType"/>
+
+  <!-- ==================== Complex Types ==================== -->
+  
+  <xs:complexType name="AircraftType">
+    <xs:annotation>
+      <xs:documentation>Root element representing an aircraft with performance data, loading points, and optional checklists.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="ClimbProfile" type="ClimbProfileType"/>
+      <xs:element name="DescentProfile" type="DescentProfileType"/>
+      <xs:element name="CruiseProfiles" type="CruiseProfilesType"/>
+      <xs:element name="LoadingPoints" type="LoadingPointsType"/>
+      <xs:element name="ChecklistBundle" type="ChecklistBundleType" minOccurs="0"/>
+    </xs:sequence>
+    
+    <!-- Aircraft Identification -->
+    <xs:attribute name="Name" type="xs:string" use="required"/>
+    <xs:attribute name="Registration" type="xs:string" use="required"/>
+    <xs:attribute name="HexCode" type="xs:string" use="required"/>
+    <xs:attribute name="Type" type="xs:string" use="required"/>
+    <xs:attribute name="AirframeType" type="AirframeTypeEnum" use="required"/>
+    <xs:attribute name="ColourMarkings" type="xs:string" use="required"/>
+    
+    <!-- Physical Characteristics -->
+    <xs:attribute name="MinimumRunwayLengthMetres" type="xs:decimal" use="required"/>
+    <xs:attribute name="ServiceCeiling" type="xs:integer" use="required"/>
+    <xs:attribute name="DefaultLevel" type="xs:integer" use="required"/>
+    
+    <!-- Fuel Configuration -->
+    <xs:attribute name="FuelType" type="FuelTypeEnum" use="required"/>
+    <xs:attribute name="AlternateFuelType" type="FuelTypeEnum" use="required"/>
+    <xs:attribute name="FuelMeasurementType" type="FuelMeasurementTypeEnum" use="required"/>
+    <xs:attribute name="FuelMeasurementVolumeType" type="VolumeTypeEnum" use="required"/>
+    <xs:attribute name="FuelMeasurementMassType" type="MassTypeEnum" use="required"/>
+    <xs:attribute name="TaxiFuel" type="xs:decimal" use="required"/>
+    <xs:attribute name="LandingFuel" type="xs:decimal" use="required"/>
+    <xs:attribute name="FinalReserveMinutes" type="xs:decimal" use="required"/>
+    <xs:attribute name="MaxFuel" type="xs:decimal" use="required"/>
+    <xs:attribute name="FuelContingency" type="xs:decimal" use="required"/>
+    <xs:attribute name="HoldingMinutes" type="xs:integer" use="required"/>
+    
+    <!-- Weight and Balance -->
+    <xs:attribute name="WeightBalanceType" type="WeightBalanceTypeEnum" use="required"/>
+    <xs:attribute name="EmptyWeight" type="xs:decimal" use="required"/>
+    <xs:attribute name="MaximumWeight" type="xs:decimal" use="required"/>
+    <xs:attribute name="EmptyArmLon" type="xs:decimal" use="required"/>
+    <xs:attribute name="EmptyArmLat" type="xs:decimal" use="required"/>
+    <xs:attribute name="MinimumArmLat" type="xs:decimal" use="required"/>
+    <xs:attribute name="MaximumArmLat" type="xs:decimal" use="required"/>
+    <xs:attribute name="EnvelopeType" type="EnvelopeTypeEnum" use="required"/>
+    <xs:attribute name="Envelope" type="xs:string" use="required"/>
+    
+    <!-- Equipment -->
+    <xs:attribute name="Equipment1" type="xs:string" use="required"/>
+    <xs:attribute name="Equipment2" type="xs:string" use="required"/>
+    <xs:attribute name="OtherCommsEquipment" type="xs:string" use="required"/>
+    <xs:attribute name="OtherNavEquipment" type="xs:string" use="required"/>
+    <xs:attribute name="PbnEquipment" type="xs:string" use="required"/>
+    
+    <!-- Glide Performance -->
+    <xs:attribute name="GlideAirspeed" type="xs:decimal" use="required"/>
+    <xs:attribute name="GlideRatio" type="xs:decimal" use="required"/>
+    
+    <!-- Cost -->
+    <xs:attribute name="HourlyCost" type="xs:decimal" use="required"/>
+    <xs:attribute name="HourlyCostIncludesFuel" type="BooleanString" use="required"/>
+  </xs:complexType>
+
+  <!-- Climb Profile -->
+  <xs:complexType name="ClimbProfileType">
+    <xs:annotation>
+      <xs:documentation>Climb performance parameters from sea level (SL) to service ceiling (SC).</xs:documentation>
+    </xs:annotation>
+    <xs:attribute name="FpmSL" type="xs:decimal" use="required">
+      <xs:annotation>
+        <xs:documentation>Climb rate in feet per minute at sea level.</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="FpmSC" type="xs:decimal" use="required">
+      <xs:annotation>
+        <xs:documentation>Climb rate in feet per minute at service ceiling.</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="IndicatedAirspeed" type="xs:decimal" use="required"/>
+    <xs:attribute name="FuelBurnSL" type="xs:decimal" use="required">
+      <xs:annotation>
+        <xs:documentation>Fuel burn rate at sea level.</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="FuelBurnSC" type="xs:decimal" use="required">
+      <xs:annotation>
+        <xs:documentation>Fuel burn rate at service ceiling.</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+
+  <!-- Descent Profile -->
+  <xs:complexType name="DescentProfileType">
+    <xs:annotation>
+      <xs:documentation>Descent performance parameters. Fpm is typically negative.</xs:documentation>
+    </xs:annotation>
+    <xs:attribute name="Fpm" type="xs:decimal" use="required">
+      <xs:annotation>
+        <xs:documentation>Descent rate in feet per minute (negative value).</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="IndicatedAirspeed" type="xs:decimal" use="required"/>
+    <xs:attribute name="FuelBurn" type="xs:decimal" use="required"/>
+  </xs:complexType>
+
+  <!-- Cruise Profiles Container -->
+  <xs:complexType name="CruiseProfilesType">
+    <xs:annotation>
+      <xs:documentation>Container for multiple cruise profiles (e.g., 55%, 65%, 75% power settings).</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="CruiseProfile" type="CruiseProfileType" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- Individual Cruise Profile -->
+  <xs:complexType name="CruiseProfileType">
+    <xs:annotation>
+      <xs:documentation>Cruise performance at a specific power setting with entries for various altitude levels.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="Entry" type="CruiseEntryType" maxOccurs="unbounded"/>
+    </xs:sequence>
+    <xs:attribute name="Name" type="xs:string" use="required">
+      <xs:annotation>
+        <xs:documentation>Power setting name (e.g., "55 %", "65 %", "75 %").</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="AirspeedType" type="AirspeedTypeEnum" use="required"/>
+    <xs:attribute name="FuelBurn" type="xs:decimal" use="required"/>
+    <xs:attribute name="IndicatedAirspeed" type="xs:decimal" use="required"/>
+    <xs:attribute name="Airspeed" type="xs:decimal" use="required"/>
+  </xs:complexType>
+
+  <!-- Cruise Entry (altitude-specific performance) -->
+  <xs:complexType name="CruiseEntryType">
+    <xs:annotation>
+      <xs:documentation>Performance data at a specific altitude level.</xs:documentation>
+    </xs:annotation>
+    <xs:attribute name="Level" type="xs:integer" use="required">
+      <xs:annotation>
+        <xs:documentation>Altitude level in feet.</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="Airspeed" type="xs:decimal" use="required"/>
+    <xs:attribute name="FuelBurn" type="xs:decimal" use="required"/>
+  </xs:complexType>
+
+  <!-- Loading Points Container -->
+  <xs:complexType name="LoadingPointsType">
+    <xs:annotation>
+      <xs:documentation>Weight and balance loading points including fuel tanks and passenger/cargo positions.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="FuelLoadingPoint" type="FuelLoadingPointType" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="LoadingPoint" type="LoadingPointType" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- Fuel Loading Point -->
+  <xs:complexType name="FuelLoadingPointType">
+    <xs:annotation>
+      <xs:documentation>Fuel tank loading point with capacity information.</xs:documentation>
+    </xs:annotation>
+    <xs:attribute name="Name" type="xs:string" use="required"/>
+    <xs:attribute name="LeverArm" type="xs:decimal" use="required">
+      <xs:annotation>
+        <xs:documentation>Longitudinal arm distance from datum.</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="LeverArmLat" type="xs:decimal" use="required">
+      <xs:annotation>
+        <xs:documentation>Lateral arm distance from centerline.</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="DefaultValue" type="xs:decimal" use="required"/>
+    <xs:attribute name="Capacity" type="xs:decimal" use="required"/>
+    <xs:attribute name="Unusable" type="xs:decimal" use="required">
+      <xs:annotation>
+        <xs:documentation>Unusable fuel amount.</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+
+  <!-- General Loading Point (passengers, baggage) -->
+  <xs:complexType name="LoadingPointType">
+    <xs:annotation>
+      <xs:documentation>General loading point for passengers, baggage, or cargo.</xs:documentation>
+    </xs:annotation>
+    <xs:attribute name="Name" type="xs:string" use="required"/>
+    <xs:attribute name="LeverArm" type="xs:decimal" use="required"/>
+    <xs:attribute name="LeverArmLat" type="xs:decimal" use="required"/>
+    <xs:attribute name="DefaultValue" type="xs:decimal" use="required"/>
+  </xs:complexType>
+
+  <!-- Checklist Bundle Container -->
+  <xs:complexType name="ChecklistBundleType">
+    <xs:annotation>
+      <xs:documentation>Container for aircraft-specific checklists organized by flight phase.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="Checklist" type="ChecklistType" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- Individual Checklist -->
+  <xs:complexType name="ChecklistType">
+    <xs:annotation>
+      <xs:documentation>A checklist with one or more sections, associated with a flight phase.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="Section" type="SectionType" maxOccurs="unbounded"/>
+    </xs:sequence>
+    <xs:attribute name="Name" type="xs:string" use="required">
+      <xs:annotation>
+        <xs:documentation>Checklist name (e.g., "CLIMB", "AFTER LANDING", "Engine Failure In Flight").</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="FlightPhase" type="FlightPhaseEnum" use="required"/>
+  </xs:complexType>
+
+  <!-- Checklist Section -->
+  <xs:complexType name="SectionType">
+    <xs:annotation>
+      <xs:documentation>A section within a checklist containing check items.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="CheckItem" type="CheckItemType" maxOccurs="unbounded"/>
+    </xs:sequence>
+    <xs:attribute name="Name" type="xs:string" use="required">
+      <xs:annotation>
+        <xs:documentation>Section name (use "-" for unnamed sections).</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="AutoReset" type="BooleanString" use="optional">
+      <xs:annotation>
+        <xs:documentation>If "True", the section automatically resets after completion.</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+
+  <!-- Check Item -->
+  <xs:complexType name="CheckItemType">
+    <xs:annotation>
+      <xs:documentation>An individual checklist item with a challenge and expected response.</xs:documentation>
+    </xs:annotation>
+    <xs:attribute name="Challenge" type="xs:string" use="required">
+      <xs:annotation>
+        <xs:documentation>The challenge or prompt to be read.</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="Response" type="xs:string" use="required">
+      <xs:annotation>
+        <xs:documentation>The expected response or action.</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+
+  <!-- ==================== Enumerations ==================== -->
+
+  <xs:simpleType name="AirframeTypeEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Aeroplane"/>
+      <xs:enumeration value="Helicopter"/>
+      <xs:enumeration value="Glider"/>
+      <xs:enumeration value="Balloon"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="FuelTypeEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="AvGas100LL"/>
+      <xs:enumeration value="AvGas100"/>
+      <xs:enumeration value="JetA"/>
+      <xs:enumeration value="JetA1"/>
+      <xs:enumeration value="MoGas"/>
+      <xs:enumeration value="Diesel"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="FuelMeasurementTypeEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Volume"/>
+      <xs:enumeration value="Mass"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="VolumeTypeEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Litres"/>
+      <xs:enumeration value="USGallons"/>
+      <xs:enumeration value="ImpGallons"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="MassTypeEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Kilograms"/>
+      <xs:enumeration value="Pounds"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="WeightBalanceTypeEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Standard"/>
+      <xs:enumeration value="Extended"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="EnvelopeTypeEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="DatumDistance"/>
+      <xs:enumeration value="Percentage"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="AirspeedTypeEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="True"/>
+      <xs:enumeration value="Indicated"/>
+      <xs:enumeration value="Calibrated"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="FlightPhaseEnum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Preflight"/>
+      <xs:enumeration value="DuringFlight"/>
+      <xs:enumeration value="Postflight"/>
+      <xs:enumeration value="Emergency"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="BooleanString">
+    <xs:annotation>
+      <xs:documentation>Boolean represented as "True" or "False" string.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="True"/>
+      <xs:enumeration value="False"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+</xs:schema>
+
