@@ -98,12 +98,12 @@
       </Section>
     </Checklist>
     <Checklist Name="CRUISE" FlightPhase="DuringFlight">
-      <Section Name="N" AutoReset="True">
+      <Section Name="-" AutoReset="True">
         <CheckItem Challenge="POWER" Response="SET (65% - 75%)" />
         <CheckItem Challenge="Elevator Trim Control" Response="ADJUST" />
         <CheckItem Challenge="Mixture Control" Response="LEAN as Required" />
         <CheckItem Challenge="Engine Instruments" Response="CHECK" />
-        <CheckItem Challenge="FUEL Quantity" Response="CHECH" />
+        <CheckItem Challenge="FUEL Quantity" Response="CHECK" />
         <CheckItem Challenge="Heading" Response="SET" />
       </Section>
     </Checklist>
@@ -119,8 +119,8 @@
         <CheckItem Challenge="Clearance Turns" Response="CHECK no Traffic" />
       </Section>
     </Checklist>
-    <Checklist Name="DESCENT" FlightPhase="DuringFlight">
-      <Section Name="-" AutoReset="True">
+    <Checklist Name="APPROACH TO LANDING" FlightPhase="DuringFlight">
+      <Section Name="Descent" AutoReset="True">
         <CheckItem Challenge="Power" Response="AS DESIRED" />
         <CheckItem Challenge="Mixture" Response="ADJUST" />
         <CheckItem Challenge="PFD BARO" Response="SET" />
@@ -128,38 +128,23 @@
         <CheckItem Challenge="FUEL SELECTOR Valve" Response="BOTH" />
         <CheckItem Challenge="Flaps" Response="AS DESIRED" />
       </Section>
-    </Checklist>
-    <Checklist Name="APPROACH" FlightPhase="DuringFlight">
-      <Section Name="-" AutoReset="True">
+      <Section Name="Approach (before traffic pattern)" AutoReset="True">
         <CheckItem Challenge="ATIS" Response="RECEIVED" />
-        <CheckItem Challenge="PFD BARO" Response="SET" />
-        <CheckItem Challenge="Standby Altimeter" Response="SET" />
         <CheckItem Challenge="Heading" Response="SET" />
         <CheckItem Challenge="Landing Lights" Response="ON" />
         <CheckItem Challenge="Arrival Briefing" Response="DONE" />
       </Section>
-    </Checklist>
-    <Checklist Name="PRE LANDING" FlightPhase="DuringFlight">
-      <Section Name="-" AutoReset="True">
+      <Section Name="Downwind" AutoReset="True">
+        <CheckItem Challenge="Magnetos" Response="BOTH" />
+        <CheckItem Challenge="Master Switch" Response="BOTH" />
         <CheckItem Challenge="Engine Instruments" Response="CHECKED" />
         <CheckItem Challenge="Mixture" Response="RICH" />
         <CheckItem Challenge="FUEL SELECTOR Valve" Response="BOTH" />
-        <CheckItem Challenge="Landing Lights" Response="ON" />
         <CheckItem Challenge="Autopilot" Response="OFF" />
         <CheckItem Challenge="Seat / Belts" Response="ADJUST / LOCKED" />
-        <CheckItem Challenge="Flaps" Response="SET" />
-      </Section>
-    </Checklist>
-    <Checklist Name="DOWNWIND CHECK" FlightPhase="DuringFlight">
-      <Section Name="-" AutoReset="True">
-        <CheckItem Challenge="Magnetos" Response="BOTH" />
-        <CheckItem Challenge="Master Switch" Response="BOTH" />
-        <CheckItem Challenge="Landing Lights" Response="ON" />
-        <CheckItem Challenge="Mixture" Response="RICH" />
-        <CheckItem Challenge="FUEL SELECTOR Valve" Response="BOTH" />
-        <CheckItem Challenge="Brake Pressure" Response="CHECK" />
-        <CheckItem Challenge="Harness" Response="CHECK" />
         <CheckItem Challenge="Doors" Response="LOCKED" />
+        <CheckItem Challenge="Brake Pressure" Response="CHECK" />
+        <CheckItem Challenge="Flaps" Response="SET" />
         <CheckItem Challenge="Landing Briefing" Response="DONE" />
         <CheckItem Challenge="FINAL / RUNWAY" Response="CHECK" />
       </Section>
