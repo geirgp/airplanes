@@ -96,7 +96,6 @@
         <CheckItem Challenge="Air Filter" Response="CHECK" />
         <CheckItem Challenge="Fan Belt and Generator" Response="CHECK" />
         <CheckItem Challenge="Propeller and Spinner" Response="CHECK" />
-        <CheckItem Challenge="GMU 11 Magnetometer" Response="CHECK (security of attachment)" />
         <CheckItem Challenge="Nosewheel Strut, Tire and Link" Response="CHECK" />
         <CheckItem Challenge="Engine Cowling" Response="SECURE" />
         <CheckItem Challenge="Static Port" Response="CHECK" />
@@ -116,6 +115,7 @@
       <Section Name="Final">
         <CheckItem Challenge="LANDING and Taxi Lights" Response="CHECK" />
         <CheckItem Challenge="NAV and STROBE Lights" Response="CHECK" />
+        <CheckItem Challenge="GMU 11 Magnetometer (location per STC — verify on aircraft)" Response="CHECK (security of attachment)" />
         <CheckItem Challenge="Passenger Briefing (evacuation, life jackets)" Response="COMPLETE" />
         <CheckItem Challenge="Weight and Balance" Response="CHECK" />
       </Section>
