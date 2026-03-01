@@ -107,7 +107,13 @@ This document defines standards and best practices for maintaining aircraft chec
 - ❌ "AVIONICS Switches" → ✅ "AVIONICS Switch" (singular, unless multiple distinct switches)
 - ❌ "Equipments" → ✅ "Equipment" (always singular)
 
-## Section Naming
+## Naming Philosophy
+
+### Checklist Names: Pilot's Mental Trigger
+- Consolidated checklist names should reflect **how the pilot thinks about the phase**, not a literal description of every section inside
+- Favor the natural trigger word a pilot would use (e.g., "Start" for the entire ground-up sequence from cockpit setup through before takeoff)
+- Sections inside the checklist carry the detail — the checklist name only needs to get the pilot to the right place
+- Keep names short and instinctive; accuracy is the sections' job
 
 ### Clear, Concise Section Names
 - ✅ "Before Start"
@@ -123,6 +129,32 @@ This document defines standards and best practices for maintaining aircraft chec
 - All items within a single checklist are displayed on the same digital screen
 - Sections are used to organize items into logical groups
 - Sections represent sequential stages in a procedural flow
+
+### Preferred Grouping Pattern (Consolidated Checklists)
+- Prefer **fewer, broader checklists** that use clearly named sections, rather than many small checklists
+- Use this pattern when multiple short checklists are part of one continuous cockpit workflow
+- Keep each consolidated checklist focused on a single operational objective (e.g., "Start", "Approach", "Shutdown")
+- Preserve procedural order by placing sections in strict execution sequence
+- Goal: reduce checklist switching while preserving phase clarity and pilot flow
+
+### When to Consolidate vs Split
+- **Consolidate** when phases are normally performed in one uninterrupted sequence
+- **Split** when there is a major operational break (time, location, crew task, or flight phase) that benefits from a separate trigger
+- **Split** when a section would otherwise become too long or cognitively heavy for quick cockpit scanning
+- If unsure, prefer consolidation first, then split only where scanability or workflow clearly suffers
+
+### Section Design Rules
+- One section = one procedural phase
+- Section names should be short, operational, and recognizable at a glance
+- Place conditional logic in dedicated sections (e.g., "If Engine Cold") at the exact point it is needed
+- Keep item order chronological within each section
+- Avoid repeating the same check item across sections unless it is intentionally re-verified
+
+### Legacy-to-Section Mapping
+- When converting older multi-checklist formats, map each legacy checklist to one section in the new consolidated checklist
+- Retain original procedural intent and item order during conversion
+- Normalize naming and capitalization to match this guide while migrating
+- After conversion, review for duplicate or conflicting items introduced by merge
 
 ### Section Organization
 - **Sections group related items** that belong to the same phase of a procedure
@@ -141,6 +173,20 @@ This document defines standards and best practices for maintaining aircraft chec
 - Use standard aviation terms when describing sections: **flow**, **procedure**, **sequence**, **phase**
 - Section names should reflect the operational phase (e.g., "Cockpit Setup", "Engine Start", "Before Takeoff")
 - Align section organization with standard aircraft operating procedures
+
+### Consolidation Example Pattern
+- `Start` checklist with ordered sections:
+  1. `Cockpit Setup`
+  2. `Engine Start Setup`
+  3. `Start Engine`
+  4. `Before Taxi`
+  5. `RUN UP`
+  6. `Before Takeoff`
+- This pattern is a model for similar end-to-end procedural groupings in other phases of flight
+
+### Consolidation Migration Guide
+- Detailed migration steps are documented in `CHECKLIST_MIGRATION_GUIDE.md`.
+- Use that guide when converting multiple legacy checklists into fewer sectioned checklists.
 
 ## Checklist Review Checklist
 
