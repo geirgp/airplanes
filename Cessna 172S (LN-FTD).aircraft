@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Aircraft AirframeType="Aeroplane" MinimumRunwayLengthMetres="0" Name="Cessna 172S" Registration="LN-FTD" HexCode="47859A" FuelType="AvGas100LL" AlternateFuelType="AvGas100LL" FuelMeasurementType="Volume" FuelMeasurementVolumeType="Litres" FuelMeasurementMassType="Kilograms" TaxiFuel="5.300000" LandingFuel="5.000000" FinalReserveMinutes="0" MaxFuel="200.000000" WeightBalanceType="Standard" EmptyWeight="786.300000" MaximumWeight="1156.700000" EmptyArmLon="41.81" EmptyArmLat="0.00" MinimumArmLat="0.00" MaximumArmLat="0.00" Type="C172" ColourMarkings="WHITE WITH BLUE MARKINGS" ServiceCeiling="14000" Equipment1="BGLOVY" Equipment2="S" OtherCommsEquipment="" OtherNavEquipment="" PbnEquipment="" FuelContingency="0.05" HoldingMinutes="45" HourlyCost="2160" HourlyCostIncludesFuel="True" GlideAirspeed="68.00" GlideRatio="9.00" DefaultLevel="3000" EnvelopeType="DatumDistance" Envelope="35.00,680.000000,35.00,884.500000,41.00,1156.700000,47.30,1156.700000,47.30,680.400000">
   <ClimbProfile FpmSL="729.000000" FpmSC="233.000000" IndicatedAirspeed="74.000000" FuelBurnSL="39.700000" FuelBurnSC="33.700000" />
   <DescentProfile Fpm="-700.000000" IndicatedAirspeed="116.000000" FuelBurn="29.000000" />
@@ -70,7 +70,7 @@
         <CheckItem Challenge="Mixture Control" Response="RICH" />
         <CheckItem Challenge="ENGINE INSTRUMENTS" Response="CHECK" />
         <CheckItem Challenge="PFD BARO" Response="SET" />
-        <CheckItem Challenge="Standby Altimeter" Response="SET" />
+        <CheckItem Challenge="GI275 Altimeter" Response="SET" />
         <CheckItem Challenge="LANDING Light" Response="OFF" />
       </Section>
     </Checklist>
@@ -125,7 +125,7 @@
         <CheckItem Challenge="Power" Response="AS DESIRED" />
         <CheckItem Challenge="Mixture" Response="ADJUST" />
         <CheckItem Challenge="PFD BARO" Response="SET" />
-        <CheckItem Challenge="Standby Altimeter" Response="SET" />
+        <CheckItem Challenge="GI275 Altimeter" Response="SET" />
         <CheckItem Challenge="FUEL SELECTOR Valve" Response="BOTH" />
         <CheckItem Challenge="Flaps" Response="AS DESIRED" />
       </Section>
@@ -175,6 +175,8 @@
         <CheckItem Challenge="FUEL QTY (L and R)" Response="CHECK" />
         <CheckItem Challenge="LOW FUEL L and LOW FUEL R" Response="CHECK (verify annunciators are not shown on PFD)" />
         <CheckItem Challenge="OIL PRESSURE Annunciator" Response="CHECK (verify annunciator is shown)" />
+        <CheckItem Challenge="GI275 Standby Display" Response="CHECK (verify ON, no red X, no Service Required)" />
+        <CheckItem Challenge="GI275 Backup Battery" Response="CHECK (Menu &gt; System &gt; Battery: verify GREEN icon)" />
         <CheckItem Challenge="AVIONICS Switch (BUS 1)" Response="ON" />
         <CheckItem Challenge="Forward Avionic Fan" Response="CHECK (verify fan is heard)" />
         <CheckItem Challenge="AVIONICS Switch (BUS 1)" Response="OFF" />
@@ -255,7 +257,7 @@
       <Section Name="Engine Start Setup">
         <CheckItem Challenge="Throttle Control" Response="OPEN 1/4 INCH" />
         <CheckItem Challenge="Mixture Control" Response="IDLE CUTOFF" />
-        <CheckItem Challenge="STBY BATT Switch" Response="ARM" />
+        <CheckItem Challenge="STBY BATT Switch (IFR: TEST hold 20s, verify green light stays on)" Response="ARM" />
         <CheckItem Challenge="Engine Indicating System" Response="CHECK (verify no red X)" />
         <CheckItem Challenge="BUS E Volts" Response="CHECK (verify 23 volts minimum)" />
         <CheckItem Challenge="M BUS Volts" Response="CHECK (verify 1.5 volts or less)" />
@@ -279,6 +281,7 @@
         <CheckItem Challenge="LOW VOLTS Annunciator" Response="CHECK not shown" />
         <CheckItem Challenge="NAV Light Switch" Response="ON as required" />
         <CheckItem Challenge="AVIONICS Switch BUS 1 and 2" Response="ON" />
+        <CheckItem Challenge="GI275 AHRS" Response="CHECK (AHRS ALIGN cleared, no flags)" />
         <CheckItem Challenge="Flaps" Response="UP" />
         <CheckItem Challenge="COM Frequency" Response="SELECT (ATIS-GND-TWR)" />
       </Section>
@@ -297,16 +300,16 @@
         <CheckItem Challenge="Flight Controls" Response="FREE and CORRECT" />
         <CheckItem Challenge="Flight Instruments (PFD)" Response="CHECK (no red Xs)" />
         <CheckItem Challenge="Altimeter PFD (BARO)" Response="SET" />
-        <CheckItem Challenge="Altimeter Standby (BARO)" Response="SET" />
+        <CheckItem Challenge="GI275 Altimeter (BARO)" Response="SET" />
         <CheckItem Challenge="G1000 ALT SEL" Response="SET" />
-        <CheckItem Challenge="STBY Instruments" Response="SET" />
+        <CheckItem Challenge="GI275 Standby Instruments" Response="CHECK (no red X, agrees with PFD)" />
         <CheckItem Challenge="Fuel Quantity" Response="CHECK" />
         <CheckItem Challenge="Mixture Control" Response="CHECK" />
         <CheckItem Challenge="FUEL SELECTOR Valve" Response="BOTH" />
-        <CheckItem Challenge="Throttle Control" Response="1800 RPM" />
+        <CheckItem Challenge="Throttle Control" Response="1800 RPM (Check Clear Area)" />
         <CheckItem Challenge="MAGNETOS Switch" Response="R - BOTH - L - BOTH CHECK drop max 150/50" />
-        <CheckItem Challenge="VAC Indicator" Response="CHECK" />
-        <CheckItem Challenge="Ampmeters and Voltmeters" Response="CHECK Positive charge &amp; ca. 28 V" />
+        <CheckItem Challenge="GI275 Standby" Response="CHECK (no flags, agrees with PFD)" />
+        <CheckItem Challenge="Ammeters and Voltmeters" Response="CHECK Positive charge &amp; ca. 28 V" />
         <CheckItem Challenge="Annunciators" Response="CHECK (no annunciators shown)" />
         <CheckItem Challenge="Throttle Control" Response="CHECK IDLE" />
         <CheckItem Challenge="Throttle Control" Response="CHECK 1000 RPM" />
@@ -333,29 +336,30 @@
       <Section Name="-">
         <CheckItem Challenge="NOSE DOWN" Response="Trim best glide 70 KIAS" />
         <CheckItem Challenge="SELECT FIELD" Response="CHECK SURFACE WIND" />
+        <CheckItem Challenge="SET COURSE" Response="-" />
         <CheckItem Challenge="ELT" Response="ON" />
         <CheckItem Challenge="FUEL PUMP" Response="ON" />
         <CheckItem Challenge="MAGNETOS" Response="BOTH / START" />
         <CheckItem Challenge="MIXTURE" Response="FULL RICH" />
         <CheckItem Challenge="FUEL SHUTOFF Valve" Response="CHECK Full push in" />
         <CheckItem Challenge="FUEL SELECTOR Valve" Response="BOTH" />
-        <CheckItem Challenge="FUEL SHUTOFF Valve" Response="CHECK Full push in" />
         <CheckItem Challenge="RADIO" Response="MAYDAY CALL" />
         <CheckItem Challenge="TRANSPONDER" Response="7700" />
       </Section>
     </Checklist>
     <Checklist Name="Engine Failures (POH)" FlightPhase="Emergency">
       <Section Name="Engine failure during takeoff roll">
-        <CheckItem Challenge="Trottle Control" Response="IDLE (pull full out)" />
+        <CheckItem Challenge="Throttle Control" Response="IDLE (pull full out)" />
         <CheckItem Challenge="Brakes" Response="APPLY" />
         <CheckItem Challenge="Flaps" Response="RETRACT" />
+        <CheckItem Challenge="IF INSUFFICIENT RUNWAY" Response="-" />
         <CheckItem Challenge="Mixture Control" Response="IDLE CUTOFF (pull full out)" />
         <CheckItem Challenge="MAGNETOS Switch" Response="OFF" />
         <CheckItem Challenge="STBY BATT Switch" Response="OFF" />
         <CheckItem Challenge="MASTER Switch (ALT and BAT)" Response="OFF" />      
       </Section>
-      <Section Name="Engine failure immediatly after takeoff">
-        <CheckItem Challenge="Airspeed" Response="70 KIAS (flaps UP)" />
+      <Section Name="Engine failure immediately after takeoff">
+        <CheckItem Challenge="Airspeed" Response="70 KIAS (flaps UP) / 60 KIAS (flaps 10°-FULL)" />
         <CheckItem Challenge="Mixture Control" Response="IDLE CUTOFF (pull full out)" />
         <CheckItem Challenge="FUEL SHUTOFF Valve" Response="OFF (pull full out)" />
         <CheckItem Challenge="MAGNETOS Switch" Response="OFF" />
@@ -370,7 +374,7 @@
         <CheckItem Challenge="FUEL SHUTOFF Valve" Response="ON (push full in)" />
         <CheckItem Challenge="FUEL SELECTOR Valve" Response="BOTH" />
         <CheckItem Challenge="FUEL PUMP Switch" Response="ON" />
-        <CheckItem Challenge="Mixture Control" Response="RICH (if restart has not occured)" />
+        <CheckItem Challenge="Mixture Control" Response="RICH (if restart has not occurred)" />
         <CheckItem Challenge="MAGNETOS Switch" Response="BOTH (or START if propeller is stopped)" />
         <CheckItem Challenge="FUEL PUMP Switch" Response="OFF" />
       </Section>
@@ -379,7 +383,7 @@
       <Section Name="Emergency landing without engine power">
         <CheckItem Challenge="Pilot and Passenger Seat Backs" Response="MOST UPRIGHT POSITION" />
         <CheckItem Challenge="Seats and Belts" Response="SECURE" />
-        <CheckItem Challenge="Airspeed" Response="70 KIAS (flaps up)" />
+        <CheckItem Challenge="Airspeed" Response="70 KIAS (flaps UP) / 60 KIAS (flaps 10°-FULL)" />
         <CheckItem Challenge="Mixture Control" Response="IDLE CUTOFF (pull full out)" />
         <CheckItem Challenge="FUEL SHUTOFF Valve" Response="OFF (pull full out)" />
         <CheckItem Challenge="MAGNETOS Switch" Response="OFF" />
@@ -471,6 +475,7 @@
         <CheckItem Challenge="STBY BATT Switch" Response="ARM" />
         <CheckItem Challenge="AVIONICS Switch (BUS 1)" Response="ON" />
         <CheckItem Challenge="AVIONICS Switch (BUS 2)" Response="ON" />
+        <CheckItem Challenge="Landing" Response="ASAP at nearest suitable airfield" />
       </Section>
       <Section Name="Cabin fire">
         <CheckItem Challenge="STBY BATT Switch" Response="OFF" />
@@ -487,6 +492,111 @@
         <CheckItem Challenge="NAV Light Switch" Response="OFF" />
         <CheckItem Challenge="STROBE Light Switch" Response="OFF" />
         <CheckItem Challenge="PITOT HEAT Switch" Response="OFF" />
+      </Section>
+    </Checklist>
+    <Checklist Name="Electrical System Malfunctions" FlightPhase="Emergency">
+      <Section Name="HIGH VOLTS annunciator or M BATT AMPS more than 40">
+        <CheckItem Challenge="MASTER Switch (ALT only)" Response="OFF" />
+        <CheckItem Challenge="Electrical Load" Response="REDUCE IMMEDIATELY" />
+        <CheckItem Challenge="AVIONICS Switch (BUS 1)" Response="OFF" />
+        <CheckItem Challenge="PITOT HEAT" Response="OFF" />
+        <CheckItem Challenge="BEACON Light" Response="OFF" />
+        <CheckItem Challenge="LANDING Light" Response="OFF" />
+        <CheckItem Challenge="TAXI Light" Response="OFF" />
+        <CheckItem Challenge="NAV Light" Response="OFF" />
+        <CheckItem Challenge="STROBE Light" Response="OFF" />
+        <CheckItem Challenge="CABIN PWR 12 V" Response="OFF" />
+        <CheckItem Challenge="COM 1 and NAV 1" Response="TUNE to ACTIVE Frequency" />
+        <CheckItem Challenge="COM 1 MIC 1" Response="SELECT" />
+        <CheckItem Challenge="AVIONICS Switch (BUS 2)" Response="OFF (Audio Panel, XPDR, NAV2, MFD will be unavailable)" />
+        <CheckItem Challenge="Landing" Response="ASAP at nearest suitable airfield" />
+      </Section>
+      <Section Name="LOW VOLTS annunciator below 1000 RPM">
+        <CheckItem Challenge="Throttle Control" Response="1000 RPM" />
+        <CheckItem Challenge="LOW VOLTS Annunciator" Response="CHECK OFF" />
+        <CheckItem Challenge="IF ANNUNCIATOR REMAINS ON AT 1000 RPM" Response="-" />
+        <CheckItem Challenge="Cancel Flight" Response="RETURN TO PARKING" />
+      </Section>
+      <Section Name="LOW VOLTS annunciator at higher RPM">
+        <CheckItem Challenge="MASTER Switch (ALT only)" Response="OFF" />
+        <CheckItem Challenge="Alternator Circuit Breaker (ALT FIELD)" Response="CHECK IN" />
+        <CheckItem Challenge="MASTER Switch (ALT and BATT)" Response="ON" />
+        <CheckItem Challenge="LOW VOLTS Annunciator" Response="CHECK OFF" />
+        <CheckItem Challenge="M BUS VOLTS" Response="CHECK 27.5 V minimum" />
+        <CheckItem Challenge="M BATT AMPS" Response="CHECK CHARGING" />
+        <CheckItem Challenge="IF LOW VOLTS ANNUNCIATOR REMAINS ON" Response="-" />
+        <CheckItem Challenge="MASTER Switch (ALT only)" Response="OFF" />
+        <CheckItem Challenge="Electrical Load" Response="REDUCE IMMEDIATELY" />
+        <CheckItem Challenge="AVIONICS Switch (BUS 1)" Response="OFF" />
+        <CheckItem Challenge="PITOT HEAT" Response="OFF" />
+        <CheckItem Challenge="BEACON Light" Response="OFF" />
+        <CheckItem Challenge="LANDING Light" Response="OFF" />
+        <CheckItem Challenge="TAXI Light" Response="OFF" />
+        <CheckItem Challenge="NAV Light" Response="OFF" />
+        <CheckItem Challenge="STROBE Light" Response="OFF" />
+        <CheckItem Challenge="CABIN PWR 12 V" Response="OFF" />
+        <CheckItem Challenge="COM 1 and NAV 1" Response="TUNE to ACTIVE Frequency" />
+        <CheckItem Challenge="COM 1 MIC 1" Response="SELECT" />
+        <CheckItem Challenge="AVIONICS Switch (BUS 2)" Response="OFF (Audio Panel, XPDR, NAV2, MFD will be unavailable)" />
+        <CheckItem Challenge="Landing" Response="ASAP at nearest suitable airfield" />
+      </Section>
+    </Checklist>
+    <Checklist Name="Air Data and AHRS Failures" FlightPhase="Emergency">
+      <Section Name="RED X - PFD Airspeed Indicator">
+        <CheckItem Challenge="ADC/AHRS Circuit Breakers" Response="CHECK IN (RESET if needed)" />
+        <CheckItem Challenge="Standby Airspeed Indicator" Response="USE FOR AIRSPEED" />
+      </Section>
+      <Section Name="RED X - PFD Altitude Indicator">
+        <CheckItem Challenge="ADC/AHRS Circuit Breakers" Response="CHECK IN (RESET if needed)" />
+        <CheckItem Challenge="Standby Altimeter" Response="USE FOR ALTITUDE" />
+      </Section>
+      <Section Name="RED X - PFD Attitude Indicator (AHRS)">
+        <CheckItem Challenge="ADC/AHRS Circuit Breakers" Response="CHECK IN (RESET if needed)" />
+        <CheckItem Challenge="GI275 Standby Attitude" Response="USE FOR ATTITUDE (independent ADAHRS)" />
+      </Section>
+      <Section Name="RED X - Horizontal Situation Indicator (HSI)">
+        <CheckItem Challenge="ADC/AHRS Circuit Breakers" Response="CHECK IN (RESET if needed)" />
+        <CheckItem Challenge="Magnetic Compass" Response="USE FOR HEADING" />
+      </Section>
+      <Section Name="GI275 AHRS Failure (Red X on attitude)">
+        <CheckItem Challenge="G1000 PFD" Response="USE FOR ATTITUDE (primary source)" />
+        <CheckItem Challenge="IF PFD ALSO FAILED" Response="-" />
+        <CheckItem Challenge="Magnetic Compass" Response="USE FOR HEADING" />
+        <CheckItem Challenge="Standby ASI and Altimeter" Response="USE FOR AIRSPEED AND ALTITUDE" />
+      </Section>
+      <Section Name="GI275 ADC Failure (Red X on airspeed/altitude)">
+        <CheckItem Challenge="G1000 PFD" Response="USE FOR AIRSPEED AND ALTITUDE" />
+        <CheckItem Challenge="Standby Instruments" Response="CROSS-CHECK" />
+      </Section>
+      <Section Name="GI275 ATTITUDE/ALT/IAS Miscompare (Amber)">
+        <CheckItem Challenge="All Available Sources" Response="CROSS-CHECK" />
+        <CheckItem Challenge="VFR Conditions" Response="SEEK OR MAINTAIN" />
+        <CheckItem Challenge="Landing" Response="ASAP if unresolvable" />
+      </Section>
+      <Section Name="GI275 on Backup Battery">
+        <CheckItem Challenge="Battery Status" Response="CHECK (GREEN 60+ min, YELLOW 15-59 min, RED less than 15 min)" />
+        <CheckItem Challenge="Nav/ADS-B Interfaces" Response="WILL BE LOAD-SHED automatically" />
+        <CheckItem Challenge="VFR Conditions" Response="SEEK OR MAINTAIN" />
+        <CheckItem Challenge="Landing" Response="ASAP if unresolvable" />
+      </Section>
+    </Checklist>
+    <Checklist Name="Display Cooling Advisory" FlightPhase="Emergency">
+      <Section Name="PFD1 COOLING or MFD1 COOLING annunciator">
+        <CheckItem Challenge="Cabin Heat (CABIN HT)" Response="REDUCE (minimum preferred)" />
+        <CheckItem Challenge="Forward Avionics Fan" Response="CHECK (feel airflow from screen/glareshield)" />
+        <CheckItem Challenge="IF FORWARD AVIONICS FAN HAS FAILED" Response="-" />
+        <CheckItem Challenge="STBY BATT Switch" Response="OFF" />
+        <CheckItem Challenge="Landing" Response="ASAP" />
+      </Section>
+    </Checklist>
+    <Checklist Name="High Carbon Monoxide" FlightPhase="Emergency">
+      <Section Name="CO LVL HIGH annunciator">
+        <CheckItem Challenge="Cabin Heat Knob" Response="OFF (push full in)" />
+        <CheckItem Challenge="Cabin Air Knob" Response="ON (pull full out)" />
+        <CheckItem Challenge="Cabin Vent" Response="OPEN" />
+        <CheckItem Challenge="Cabin Windows" Response="OPEN (163 KIAS max)" />
+        <CheckItem Challenge="IF CO LVL HIGH REMAINS ON" Response="-" />
+        <CheckItem Challenge="Landing" Response="AS SOON AS PRACTICAL" />
       </Section>
     </Checklist>
     <Checklist Name="Landing (POH)" FlightPhase="DuringFlight">

@@ -96,7 +96,8 @@
         <CheckItem Challenge="Air Filter" Response="CHECK" />
         <CheckItem Challenge="Fan Belt and Generator" Response="CHECK" />
         <CheckItem Challenge="Propeller and Spinner" Response="CHECK" />
-        <CheckItem Challenge="Nosewheel Strut and Tire" Response="CHECK" />
+        <CheckItem Challenge="GMU 11 Magnetometer" Response="CHECK (security of attachment)" />
+        <CheckItem Challenge="Nosewheel Strut, Tire and Link" Response="CHECK" />
         <CheckItem Challenge="Engine Cowling" Response="SECURE" />
         <CheckItem Challenge="Static Port" Response="CHECK" />
       </Section>
@@ -115,7 +116,7 @@
       <Section Name="Final">
         <CheckItem Challenge="LANDING and Taxi Lights" Response="CHECK" />
         <CheckItem Challenge="NAV and STROBE Lights" Response="CHECK" />
-        <CheckItem Challenge="Passenger Briefing" Response="COMPLETE" />
+        <CheckItem Challenge="Passenger Briefing (evacuation, life jackets)" Response="COMPLETE" />
         <CheckItem Challenge="Weight and Balance" Response="CHECK" />
       </Section>
     </Checklist>
@@ -128,6 +129,7 @@
         <CheckItem Challenge="Elevator Trim Control" Response="CHECK and SET" />
         <CheckItem Challenge="FUEL SELECTOR Valve" Response="BOTH" />
         <CheckItem Challenge="Circuit Breakers" Response="CHECK IN" />
+        <CheckItem Challenge="AVIONICS Switch" Response="OFF" />
         <CheckItem Challenge="Primer" Response="2-6 strokes, LOCKED" />
         <CheckItem Challenge="Mixture" Response="RICH" />
         <CheckItem Challenge="Throttle" Response="OPEN 1/2 CM" />
@@ -138,11 +140,14 @@
       <Section Name="Start Engine">
         <CheckItem Challenge="Master Switch (BAT only)" Response="ON" />
         <CheckItem Challenge="BEACON Light Switch" Response="ON" />
+        <CheckItem Challenge="G5 Displays (PFD and HSI)" Response="CHECK (verify powered on, ALIGNING displayed)" />
+        <CheckItem Challenge="G5 Battery Status" Response="CHECK (verify GREEN indicator)" />
         <CheckItem Challenge="MAGNETOS Switch" Response="START" />
         <CheckItem Challenge="Throttle" Response="1000 RPM" />
         <CheckItem Challenge="Oil Pressure" Response="CHECK (green within 30-60 sec)" />
         <CheckItem Challenge="Master Switch (ALT)" Response="ON" />
         <CheckItem Challenge="Flaps" Response="CHECK and UP" />
+        <CheckItem Challenge="G5 AHRS Alignment" Response="CHECK (ALIGNING cleared, no red X flags)" />
         <CheckItem Challenge="Radios (ATIS-GND-TWR)" Response="ON" />
         <CheckItem Challenge="NAV Light Switch" Response="ON as required" />
         <CheckItem Challenge="Altimeters (QNH)" Response="SET" />
@@ -172,7 +177,7 @@
         <CheckItem Challenge="FUEL SELECTOR Valve" Response="BOTH" />
         <CheckItem Challenge="Flaps" Response="0-10°" />
         <CheckItem Challenge="Instruments" Response="CHECK" />
-        <CheckItem Challenge="Heading" Response="SET" />
+        <CheckItem Challenge="G5 HSI Heading" Response="VERIFY (agrees with runway HDG and compass)" />
         <CheckItem Challenge="Transponder" Response="ON" />
         <CheckItem Challenge="Departure Briefing" Response="REVIEWED" />
         <CheckItem Challenge="Compass Heading (on line-up)" Response="CHECK" />
@@ -192,7 +197,7 @@
         <CheckItem Challenge="Power" Response="SET" />
         <CheckItem Challenge="Mixture" Response="LEAN as required" />
         <CheckItem Challenge="Engine Instruments" Response="CHECK" />
-        <CheckItem Challenge="Fuel Quantity" Response="CHECK" />
+        <CheckItem Challenge="Fuel Quantity / Balance" Response="CHECK" />
         <CheckItem Challenge="Heading" Response="SET" />
       </Section>
     </Checklist>
@@ -278,6 +283,7 @@
       <Section Name="-">
         <CheckItem Challenge="NOSE DOWN" Response="Trim best glide 70 KIAS" />
         <CheckItem Challenge="SELECT FIELD" Response="CHECK SURFACE WIND" />
+        <CheckItem Challenge="SET COURSE" Response="-" />
         <CheckItem Challenge="ELT" Response="ON" />
         <CheckItem Challenge="Identify" Response="CHECK" />
         <CheckItem Challenge="Primer" Response="LOCKED" />
@@ -391,6 +397,20 @@
         <CheckItem Challenge="Personal Equipment" Response="DISCONNECT" />
         <CheckItem Challenge="Doors" Response="OPEN" />
         <CheckItem Challenge="Aircraft" Response="ABANDON (passengers first if possible)" />
+      </Section>
+    </Checklist>
+    <Checklist Name="G5 Failures" FlightPhase="Emergency">
+      <Section Name="G5 PFD Failure">
+        <CheckItem Challenge="G5 HSI" Response="CHECK (automatically reverts to attitude display)" />
+        <CheckItem Challenge="Magnetic Compass" Response="USE FOR HEADING" />
+      </Section>
+      <Section Name="ALIGNING KEEP WINGS LEVEL displayed">
+        <CheckItem Challenge="G5 Attitude" Response="INVALID (use standby/magnetic compass)" />
+        <CheckItem Challenge="Aircraft" Response="KEEP WINGS LEVEL until alignment complete" />
+      </Section>
+      <Section Name="NO BATT displayed on G5">
+        <CheckItem Challenge="IMC Flight" Response="DO NOT CONDUCT" />
+        <CheckItem Challenge="G5 Internal Battery" Response="Provides up to 4 hours if aircraft power lost" />
       </Section>
     </Checklist>
   </ChecklistBundle>
