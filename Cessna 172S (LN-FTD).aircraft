@@ -63,7 +63,7 @@
   </LoadingPoints>
   <ChecklistBundle>
     <Checklist Name="CLIMB" FlightPhase="DuringFlight">
-      <Section Name="Climb" AutoReset="True">
+      <Section Name="-" AutoReset="True">
         <CheckItem Challenge="AIRSPEED" Response="80 KIAS" />
         <CheckItem Challenge="THROTTLE" Response="FULL" />
         <CheckItem Challenge="FLAPS" Response="RETRACT at safe altitude" />
@@ -71,10 +71,11 @@
         <CheckItem Challenge="ENGINE INSTRUMENTS" Response="CHECK" />
         <CheckItem Challenge="PFD BARO" Response="SET" />
         <CheckItem Challenge="Standby Altimeter" Response="SET" />
+        <CheckItem Challenge="LANDING Light" Response="OFF" />
       </Section>
     </Checklist>
     <Checklist Name="AFTER LANDING" FlightPhase="Postflight">
-      <Section Name="After Landing" AutoReset="True">
+      <Section Name="-" AutoReset="True">
         <CheckItem Challenge="Flaps" Response="UP" />
         <CheckItem Challenge="Lights" Response="AS REQUIRED" />
         <CheckItem Challenge="Radio" Response="AS REQUIRED" />
@@ -82,7 +83,7 @@
       </Section>
     </Checklist>
     <Checklist Name="SHUT DOWN" FlightPhase="Postflight">
-      <Section Name="Shutdown" AutoReset="True">
+      <Section Name="-" AutoReset="True">
         <CheckItem Challenge="Parking Brake" Response="SET" />
         <CheckItem Challenge="Throttle" Response="IDLE" />
         <CheckItem Challenge="Electrical Equipment" Response="OFF" />
@@ -98,7 +99,7 @@
       </Section>
     </Checklist>
     <Checklist Name="CRUISE" FlightPhase="DuringFlight">
-      <Section Name="Cruise" AutoReset="True">
+      <Section Name="-" AutoReset="True">
         <CheckItem Challenge="POWER" Response="SET (65% - 75%)" />
         <CheckItem Challenge="Elevator Trim Control" Response="ADJUST" />
         <CheckItem Challenge="Mixture Control" Response="LEAN as Required" />
@@ -107,7 +108,18 @@
         <CheckItem Challenge="Heading" Response="SET" />
       </Section>
     </Checklist>
-    
+    <Checklist Name="AIR WORK / STALL CHECK" FlightPhase="DuringFlight">
+      <Section Name="-" AutoReset="True">
+        <CheckItem Challenge="Loose Articles" Response="Secure" />
+        <CheckItem Challenge="Altitude" Response="Minimum 3000 AGL" />
+        <CheckItem Challenge="Forced Landing Area" Response="LOCATED" />
+        <CheckItem Challenge="Weight &amp; Balance" Response="CHECK" />
+        <CheckItem Challenge="Seat Belts" Response="ADJUST and LOCKED" />
+        <CheckItem Challenge="FUEL SELECTOR Valve" Response="BOTH" />
+        <CheckItem Challenge="Mixture Control" Response="RICH" />
+        <CheckItem Challenge="Clearance Turns" Response="CHECK no Traffic" />
+      </Section>
+    </Checklist>
     <Checklist Name="APPROACH TO LANDING" FlightPhase="DuringFlight">
       <Section Name="Descent" AutoReset="True">
         <CheckItem Challenge="Power" Response="AS DESIRED" />
@@ -139,25 +151,13 @@
       </Section>
     </Checklist>
     <Checklist Name="GO AROUND" FlightPhase="DuringFlight">
-      <Section Name="Go Around" AutoReset="True">
+      <Section Name="-" AutoReset="True">
         <CheckItem Challenge="Throttle" Response="FULL POWER" />
         <CheckItem Challenge="Mixture" Response="RICH" />
         <CheckItem Challenge="Flaps" Response="RETRACT 10° CAREFULLY" />
         <CheckItem Challenge="Climb Speed" Response="60 - 80 KIAS" />
         <CheckItem Challenge="Flaps" Response="RETRACT 0°" />
         <CheckItem Challenge="Trim" Response="SET" />
-      </Section>
-    </Checklist>
-    <Checklist Name="AIR WORK / STALL CHECK" FlightPhase="DuringFlight">
-      <Section Name="Preparation" AutoReset="True">
-        <CheckItem Challenge="Loose Articles" Response="Secure" />
-        <CheckItem Challenge="Altitude" Response="Minimum 3000 AGL" />
-        <CheckItem Challenge="Forced Landing Area" Response="LOCATED" />
-        <CheckItem Challenge="Weight &amp; Balance" Response="CHECK" />
-        <CheckItem Challenge="Seat Belts" Response="ADJUST and LOCKED" />
-        <CheckItem Challenge="FUEL SELECTOR Valve" Response="BOTH" />
-        <CheckItem Challenge="Mixture Control" Response="RICH" />
-        <CheckItem Challenge="Clearance Turns" Response="CHECK no Traffic" />
       </Section>
     </Checklist>
     <Checklist Name="Preflight Inspection" FlightPhase="Preflight">
@@ -330,7 +330,7 @@
       </Section>
     </Checklist>
     <Checklist Name="Engine Failure In Flight" FlightPhase="Emergency">
-      <Section Name="Engine Failure">
+      <Section Name="-">
         <CheckItem Challenge="NOSE DOWN" Response="Trim best glide 70 KIAS" />
         <CheckItem Challenge="SELECT FIELD" Response="CHECK SURFACE WIND" />
         <CheckItem Challenge="ELT" Response="ON" />
@@ -520,7 +520,7 @@
       </Section>
     </Checklist>
     <Checklist Name="Securing Airplane (POH)" FlightPhase="Postflight">
-      <Section Name="Securing">
+      <Section Name="-">
         <CheckItem Challenge="Parking Brake" Response="SET" />
         <CheckItem Challenge="Throttle Control" Response="IDLE (pull full out)" />
         <CheckItem Challenge="Electrical Equipment" Response="OFF" />
