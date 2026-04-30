@@ -148,6 +148,7 @@
         <CheckItem Challenge="Master Switch (ALT)" Response="ON" />
         <CheckItem Challenge="Flaps" Response="CHECK and UP" />
         <CheckItem Challenge="G5 AHRS Alignment" Response="CHECK (ALIGNING cleared, no red X flags)" />
+        <CheckItem Challenge="G5 HSI Heading" Response="CHECK (agrees with magnetic compass)" />
         <CheckItem Challenge="Radios (ATIS-GND-TWR)" Response="ON" />
         <CheckItem Challenge="NAV Light Switch" Response="ON as required" />
         <CheckItem Challenge="Altimeters (QNH)" Response="SET" />
