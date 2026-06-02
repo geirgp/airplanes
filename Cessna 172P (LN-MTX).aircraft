@@ -69,7 +69,7 @@
         <CheckItem Challenge="Flaps" Response="DOWN" />
         <CheckItem Challenge="Fuel Quantity" Response="CHECK" />
         <CheckItem Challenge="Master Switch" Response="OFF" />
-        <CheckItem Challenge="Control Lock" Response="REMOVED" />
+        <CheckItem Challenge="Gust Lock" Response="REMOVED" />
         <CheckItem Challenge="Cabin Doors and Windows" Response="CHECK" />
       </Section>
       <Section Name="Empennage">
@@ -126,7 +126,7 @@
         <CheckItem Challenge="FUEL SELECTOR Valve" Response="BOTH" />
         <CheckItem Challenge="Circuit Breakers" Response="CHECK IN" />
         <CheckItem Challenge="AVIONICS Switch" Response="OFF" />
-        <CheckItem Challenge="Primer" Response="2-6 strokes, LOCKED" />
+        <CheckItem Challenge="Primer (hot - cold)" Response="2-6, LOCKED" />
         <CheckItem Challenge="Mixture" Response="RICH" />
         <CheckItem Challenge="Throttle" Response="OPEN 1/2 CM" />
         <CheckItem Challenge="CARB HEAT" Response="OFF" />
@@ -134,12 +134,12 @@
         <CheckItem Challenge="Propeller Area" Response="CLEAR" />
       </Section>
       <Section Name="Start Engine">
-        <CheckItem Challenge="Master Switch (BAT only)" Response="ON" />
+        <CheckItem Challenge="Master Switch (BATT only)" Response="ON" />
         <CheckItem Challenge="BEACON Light Switch" Response="ON" />
         <CheckItem Challenge="MAGNETOS Switch" Response="START" />
         <CheckItem Challenge="Throttle" Response="1000 RPM" />
         <CheckItem Challenge="Oil Pressure" Response="CHECK (green within 30-60 sec)" />
-        <CheckItem Challenge="Master Switch (ALT)" Response="ON" />
+        <CheckItem Challenge="Master Switch ALT" Response="ON" />
         <CheckItem Challenge="Flaps" Response="CHECK and UP" />
         <CheckItem Challenge="AVIONICS Switch" Response="ON" />
         <CheckItem Challenge="Radios (ATIS-GND-TWR)" Response="ON" />
@@ -155,7 +155,7 @@
       <Section Name="RUN UP">
         <CheckItem Challenge="Nose Into Wind" Response="ALIGN" />
         <CheckItem Challenge="Brakes" Response="CHECK and SET" />
-        <CheckItem Challenge="Area" Response="CLEAR" />
+        <CheckItem Challenge="Area Free" Response="CLEAR" />
         <CheckItem Challenge="Throttle" Response="1700 RPM" />
         <CheckItem Challenge="Oil Pressure / Temperature" Response="CHECK" />
         <CheckItem Challenge="Suction" Response="CHECK (4.6-5.4 green)" />
@@ -175,7 +175,7 @@
         <CheckItem Challenge="Instruments" Response="CHECK" />
         <CheckItem Challenge="Gyros (compass set to RWY HDG)" Response="SET" />
         <CheckItem Challenge="Transponder" Response="ON" />
-        <CheckItem Challenge="Departure Briefing (engine failure, outbound routing)" Response="REVIEWED" />
+        <CheckItem Challenge="Departure Briefing" Response="REVIEWED" />
         <CheckItem Challenge="Compass Heading (on line-up)" Response="CHECK" />
         <CheckItem Challenge="Takeoff Time" Response="LOGGED" />
       </Section>
@@ -266,12 +266,12 @@
         <CheckItem Challenge="Transponder" Response="OFF" />
         <CheckItem Challenge="Lights (NAV, Taxi)" Response="OFF" />
         <CheckItem Challenge="Throttle" Response="1000 RPM" />
-        <CheckItem Challenge="Mixture" Response="IDLE CUTOFF" />
+        <CheckItem Challenge="Mixture" Response="FULL LEAN" />
         <CheckItem Challenge="BEACON Light Switch" Response="OFF" />
         <CheckItem Challenge="MAGNETOS Switch" Response="OFF" />
         <CheckItem Challenge="Master Switch" Response="OFF" />
         <CheckItem Challenge="All Switches" Response="OFF" />
-        <CheckItem Challenge="Control Lock" Response="INSTALLED" />
+        <CheckItem Challenge="Gust Lock" Response="INSTALLED" />
         <CheckItem Challenge="Documents" Response="FILLED" />
       </Section>
     </Checklist>
@@ -295,7 +295,7 @@
     <Checklist Name="Engine Failures" FlightPhase="Emergency">
       <Section Name="Engine Failure on Runway">
         <CheckItem Challenge="Throttle" Response="IDLE" />
-        <CheckItem Challenge="Brakes" Response="APPLY" />
+        <CheckItem Challenge="Brakes" Response="APPLY TO STOP" />
         <CheckItem Challenge="IF INSUFFICIENT RUNWAY" Response="-" />
         <CheckItem Challenge="Mixture" Response="IDLE CUTOFF" />
         <CheckItem Challenge="FUEL SELECTOR Valve" Response="OFF" />

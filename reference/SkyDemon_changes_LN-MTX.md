@@ -4,7 +4,8 @@
 
 **Reference:** `reference/checklist_ln-mtx_202x.md` (OCR from undated revision PDF)  
 **SkyDemon source:** `Cessna 172P (LN-MTX).aircraft`  
-**Instrumentation:** Steam gauges (no G5/GI275). No instrumentation upgrade for this aircraft.
+**Instrumentation:** Steam gauges (no G5/GI275). No instrumentation upgrade for this aircraft.  
+**Related:** Wording harmonized with LN-DAG where club checklists share the same lineage; see `SkyDemon_changes_LN-DAG.md`.
 
 ---
 
@@ -37,19 +38,23 @@ All deviations are planned improvements; there are no changes due to upgraded in
 
 ### 1.2 Terminology and capitalization (AI_INSTRUCTIONS.md)
 
-- **Gust lock** → **Control Lock** (preflight and shutdown).
+- **Gust lock** → **Gust Lock** (preflight and shutdown; matches reference PDF and LN-DAG).
 - **Trim** → **Elevator Trim Control**.
 - **Fuel selector** → **FUEL SELECTOR Valve**.
 - **Avionics** → **AVIONICS Switch**; **Beacon** → **BEACON Light Switch**; **Magnetos** → **MAGNETOS Switch**.
 - **Carburetor heat** → **CARB HEAT**.
-- **Master switch** → **Master Switch** (with BAT only / ALT / BOTH as appropriate).
+- **Master switch** → **Master Switch** (with **BATT only**, **Master Switch ALT**, **BOTH** as appropriate).
 - **Navigation lights** → **NAV Light Switch** / **NAV and STROBE Lights**.
 - **Landing lights** → **LANDING Light** where referring to the switch/light.
 - **Radios** → **Radios (ATIS-GND-TWR)**.
 - **Gyros (comp. Set to RWY HDG)** → **Gyros (compass set to RWY HDG) — SET** (retained; aircraft has steam gyros).
-- **Departure briefing** with sub-bullets → **Departure Briefing (engine failure, outbound routing) — REVIEWED**.
+- **Departure briefing** with sub-bullets → **Departure Briefing — REVIEWED**.
 - **Documents — Filled** → **Documents — FILLED**.
 - **Flaps — Carefully up** → **Flaps — RETRACT CAREFULLY**.
+- **Primer** → **Primer (hot - cold)** with response **2-6, LOCKED**.
+- **Area** (RUN UP) → **Area Free**.
+- **Brakes** (engine failure on runway) → **APPLY TO STOP**.
+- **Mixture** (SHUT DOWN) → **FULL LEAN** (restores reference PDF wording; IDLE CUTOFF retained in emergency checklists only).
 
 ### 1.3 RUN UP and Before Takeoff (unchanged intent)
 
@@ -63,7 +68,21 @@ All deviations are planned improvements; there are no changes due to upgraded in
 
 ---
 
-## 2. What did not change (no instrumentation upgrade)
+## 2. Alignment with LN-DAG
+
+LN-MTX checklists were harmonized with LN-DAG (Cessna 172M) where the aircraft share the same club checklist lineage, with these intentional differences:
+
+| Kept on MTX only | Omitted from MTX (DAG has G5) |
+|------------------|-------------------------------|
+| **Suction** in RUN UP | GMU 11 Magnetometer (preflight) |
+| **Gyros** in Start Engine and Before Takeoff | G5 Displays, Battery, AHRS, HSI checks |
+| **AVIONICS Switch — ON** after start (conventional avionics bus) | **G5 Failures** emergency checklist |
+
+Wording aligned to match DAG: Gust Lock, Primer (hot - cold), Master Switch (BATT only) / Master Switch ALT, Area Free, Departure Briefing, FULL LEAN shutdown, Brakes APPLY TO STOP.
+
+---
+
+## 3. What did not change (no instrumentation upgrade)
 
 - No G5 or GI275; no PFD/HSI/BARO or standby display items.
 - No magnetometer (GMU 11) check.
@@ -73,11 +92,11 @@ All deviations are planned improvements; there are no changes due to upgraded in
 
 ---
 
-## 3. Quick reference for reviewers
+## 4. Quick reference for reviewers
 
 - **Consolidation** → Matches `CHECKLIST_MIGRATION_GUIDE.md`.
 - **Terminology** → Matches `AI_INSTRUCTIONS.md`.
 - **Suction and Gyros** → Kept; aircraft still has vacuum and steam gyros.
-- **No new avionics-related checklists or steps** → LN-MTX has no G5/GI275 upgrade.
+- **Alignment with LN-DAG** → Same club checklist structure and wording except vacuum/gyro items and no G5 content. Changelog entries for shared terminology match `SkyDemon_changes_LN-DAG.md`.
 
 Any change not listed here should be a wording or formatting normalisation that does not alter procedural intent.

@@ -4,7 +4,8 @@
 
 **Reference:** `reference/checklist_ln-ftd_aug-2020.md` (OCR from Aug 2020 PDF — G1000 aircraft)  
 **SkyDemon source:** `Cessna 172S (LN-FTD).aircraft`  
-**Instrumentation:** G1000 with **Garmin GI275** standby instruments (upgrade from original G1000-only / conventional standby configuration).
+**Instrumentation:** G1000 with **Garmin GI275** standby instruments (upgrade from original G1000-only / conventional standby configuration).  
+**Note:** LN-FTD uses **Control Lock** per the 172S reference/POH — not **Gust Lock** (used on LN-DAG and LN-MTX club checklists).
 
 ---
 
@@ -44,6 +45,7 @@ All deviations are either planned improvements or due to GI275 standby instrumen
 - **Pilot and Passengers seat backs** → **Pilot and Passenger Seat Backs** (capitalization).
 - **Seats and seat belts** → **Seats and Belts** (brevity where used).
 - **Fuel Selector** / **Fuel selector** → **FUEL SELECTOR Valve** where appropriate.
+- **Control Lock** — Retained per 172S reference and POH (Securing Airplane); not renamed to Gust Lock.
 - **G1000 ALT SEL** retained; **Standby Altimeter** → **GI275 Altimeter** or **GI275 Standby** where the standby is the GI275 (see §2).
 
 ### 1.3 Content alignment with POH

@@ -37,19 +37,23 @@ All deviations below fall into one of these two categories.
 
 ### 1.2 Terminology and capitalization (AI_INSTRUCTIONS.md)
 
-- **Gust lock** → **Control Lock** (preflight and shutdown).
+- **Gust lock** → **Gust Lock** (preflight and shutdown; matches reference PDF).
 - **Trim** → **Elevator Trim Control** (Before Start, RUN UP context).
 - **Fuel selector** → **FUEL SELECTOR Valve** (all phases).
 - **Avionics** → **AVIONICS Switch**; **Beacon** → **BEACON Light Switch**; **Magnetos** → **MAGNETOS Switch**.
 - **Carburetor heat** → **CARB HEAT** (brevity and consistency).
-- **Master switch** → **Master Switch** with qualifiers as needed (e.g. *BAT only*, *ALT*, *BOTH*).
+- **Master switch** → **Master Switch** with qualifiers as needed (e.g. **BATT only**, **Master Switch ALT**, **BOTH**).
 - **Navigation lights** → **NAV Light Switch** / **NAV and STROBE Lights** where appropriate.
 - **Landing lights** → **LANDING Light** (singular where it refers to the switch/light).
 - **Radios** → **Radios (ATIS-GND-TWR)** where the intent is to set those frequencies.
+- **Primer** → **Primer (hot - cold)** with response **2-6, LOCKED**.
+- **Area** (RUN UP) → **Area Free**.
 - **Departure briefing** with sub-bullets → single item **Departure Briefing — REVIEWED**.
 - **Documents — Filled** → **Documents — FILLED** (consistent verb form).
 - **All Switches** → **All Switches OFF** (explicit response).
 - **Flaps — Carefully up** → **Flaps — RETRACT CAREFULLY** (action-oriented).
+- **Mixture** (SHUT DOWN) → **FULL LEAN** (matches reference PDF; **IDLE CUTOFF** retained in emergency checklists only).
+- **Brakes** (engine failure on runway) → **APPLY TO STOP**.
 
 ### 1.3 Emergency memory items
 
@@ -60,7 +64,7 @@ All deviations below fall into one of these two categories.
 
 ## 2. G5 instrumentation changes
 
-### 2.1 Preflight — Nose section
+### 2.1 Preflight — Final section
 
 - **Added:** **GMU 11 Magnetometer — CHECK (security of attachment)**  
   G5 uses an external magnetometer (GMU 11); security of attachment is a necessary preflight check.
@@ -105,7 +109,8 @@ These sections are specific to G5 and have no direct equivalent in the steam-gau
 ## 3. Quick reference for reviewers
 
 - **Consolidation and section names** → Align with `CHECKLIST_MIGRATION_GUIDE.md` (fewer checklists, clear sections, same procedural order).
-- **Terminology/capitalization** → Align with `AI_INSTRUCTIONS.md` (e.g. FUEL SELECTOR Valve, AVIONICS Switch, Control Lock, CARB HEAT).
+- **Terminology/capitalization** → Align with `AI_INSTRUCTIONS.md` (e.g. FUEL SELECTOR Valve, AVIONICS Switch, Gust Lock, CARB HEAT).
+- **Shared club checklist wording (LN-DAG / LN-MTX)** → Gust Lock, Primer (hot - cold), Master Switch (BATT only) / Master Switch ALT, Area Free, Departure Briefing, FULL LEAN shutdown, Brakes APPLY TO STOP. LN-MTX retains vacuum/gyro items; LN-DAG adds G5 items instead.
 - **Removed suction / gyros** → Due to G5 (no vacuum; no traditional gyros).
 - **New or reworded items** mentioning G5, G5 HSI, G5 AHRS, GMU 11, or G5 battery → All due to G5 instrumentation.
 - **New "G5 Failures" checklist** → G5-specific emergency procedures.
